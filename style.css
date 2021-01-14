@@ -133,7 +133,6 @@ h1 button {
   transform: rotateX(180deg);
 }
 
-/* position: relative is set for inner-card */
 .inner-card-front::after,
 .inner-card-back::after {
   /* f021 is unicode provided by Font Awesome - need to set font family for it */
