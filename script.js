@@ -66,7 +66,7 @@ function createCard(data, index) {
 
   cardsContainer.appendChild(card);
 
-  // updateCurrentText();
+  updateCurrentText();
 }
 
 // Show card number out of total cards
