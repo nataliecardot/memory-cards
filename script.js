@@ -69,4 +69,9 @@ function createCard(data, index) {
   // updateCurrentText();
 }
 
+// Show card number out of total cards
+function updateCurrentText() {
+  currentEl.innerText = `${currentActiveCard + 1}/${cardsEl.length}`;
+}
+
 createCards();
