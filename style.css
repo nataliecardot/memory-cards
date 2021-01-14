@@ -76,6 +76,7 @@ h1 button {
   left: 0;
   height: 100%;
   width: 100%;
+  /* rotateY: rotated in a counter-clockwise direction when negative */
   transform: translateX(50%) rotateY(-10deg);
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
@@ -97,17 +98,20 @@ h1 button {
   height: 100%;
   width: 100%;
   position: relative;
-  /* Making it a 3d space - when the show-answer class is added, it's rotated 180 degrees, so back is visible */
+  /* Making it a 3d space (initially it was set to flat) - when the show-answer class is added, it's rotated 180 degrees, so back is visible - this is so text (answer to question) isn't upside down */
   transform-style: preserve-3d;
+  /* Flip effect */
   transition: transform 0.4s ease;
 }
 
 .card.show-answer .inner-card {
+  /* Flipping card over */
   transform: rotateX(180deg);
 }
 
 .inner-card-front,
 .inner-card-back {
+  /* Sets whether backface of element is visible when it's turned toward us */
   backface-visibility: hidden;
   position: absolute;
   top: 0;
@@ -122,7 +126,6 @@ h1 button {
 }
 
 .inner-card-front {
-  transform: rotateX(0deg);
   z-index: 2;
 }
 
@@ -130,6 +133,7 @@ h1 button {
   transform: rotateX(180deg);
 }
 
+/* position: relative is set for inner-card */
 .inner-card-front::after,
 .inner-card-back::after {
   /* f021 is unicode provided by Font Awesome - need to set font family for it */
