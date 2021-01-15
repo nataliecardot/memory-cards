@@ -95,3 +95,25 @@ nextBtn.addEventListener('click', () => {
 
   updateCurrentText();
 });
+
+// Allow use of left/right arrow keys to navigate cards
+window.addEventListener('keydown', (e) => {
+  if (e.code === 'ArrowRight') {
+    cardsEl[currentActiveCard].className = 'card left';
+
+    // Get new card index (next one)
+    currentActiveCard = currentActiveCard + 1;
+
+    // Stay within range of total cards
+    if (currentActiveCard > cardsEl.length - 1) {
+      currentActiveCard = cardsEl.length - 1;
+    }
+
+    cardsEl[currentActiveCard].className = 'card active';
+
+    updateCurrentText();
+  }
+
+  if (e.code === 'ArrowLeft') {
+  }
+});
