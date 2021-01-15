@@ -135,3 +135,9 @@ window.addEventListener('keydown', (e) => {
     prevCard();
   }
 });
+
+// Show add card form
+showBtn.addEventListener('click', () => addContainer.classList.add('show'));
+
+// Hide add card form
+hideBtn.addEventListener('click', () => addContainer.classList.remove('show'));
