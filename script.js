@@ -75,3 +75,23 @@ function updateCurrentText() {
 }
 
 createCards();
+
+// Event listeners
+
+nextBtn.addEventListener('click', () => {
+  // Hide the card by moving it to the left (notice it only has left class for a moment, achieving the CSS effect - below left is changed to active)
+  // With className, overwriting existing class(es); that's why need to include card
+  cardsEl[currentActiveCard].className = 'card left';
+
+  // Get new card index (next one)
+  currentActiveCard = currentActiveCard + 1;
+
+  // Stay within range of total cards
+  if (currentActiveCard > cardsEl.length - 1) {
+    currentActiveCard = cardsEl.length - 1;
+  }
+
+  cardsEl[currentActiveCard].className = 'card active';
+
+  updateCurrentText();
+});
