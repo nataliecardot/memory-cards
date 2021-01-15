@@ -17,23 +17,25 @@ let currentActiveCard = 0;
 const cardsEl = [];
 
 // Store card data (will place in session storage later)
-const cardsData = [
-  {
-    question: 'What is the forEach() method?',
-    answer:
-      'Executes a provided callback function once for each value in Array, Map (made up of key-value pairs), Set, NodeList (an array-like object often returned by Document.querySelectorAll()), or HTMLCollection (an array-like object often returned by Document.getElementsByClassName()) objects, in ascending order (ES5).',
-  },
-  {
-    question: 'What is a for-in statement?',
-    answer:
-      'Creates a loop that iterates over all non-Symbol, enumerable properties of an object, sometimes in an arbitrary order.',
-  },
-  {
-    question: 'What is a for-of statement?',
-    answer:
-      'Creates a loop that iterates over iterable objects (see below for clarification) in iterable order. A common use is looping through values in an array, but it also works on most array-like objects.',
-  },
-];
+const cardsData = getCardsData();
+
+// const cardsData = [
+//   {
+//     question: 'What is the forEach() method?',
+//     answer:
+//       'Executes a provided callback function once for each value in Array, Map (made up of key-value pairs), Set, NodeList (an array-like object often returned by Document.querySelectorAll()), or HTMLCollection (an array-like object often returned by Document.getElementsByClassName()) objects, in ascending order (ES5).',
+//   },
+//   {
+//     question: 'What is a for-in statement?',
+//     answer:
+//       'Creates a loop that iterates over all non-Symbol, enumerable properties of an object, sometimes in an arbitrary order.',
+//   },
+//   {
+//     question: 'What is a for-of statement?',
+//     answer:
+//       'Creates a loop that iterates over iterable objects (see below for clarification) in iterable order. A common use is looping through values in an array, but it also works on most array-like objects.',
+//   },
+// ];
 
 // Create all cards
 function createCards() {
@@ -72,6 +74,13 @@ function createCard(data, index) {
 // Show card number out of total cards
 function updateCurrentText() {
   currentEl.innerText = `${currentActiveCard + 1}/${cardsEl.length}`;
+}
+
+// Get cards from session storage
+function getCardsData() {
+  // session storage only stores strings - will stringify array of cards and store it - but when extracting it from storage need to parse it back into an array
+  const cards = JSON.parse(sessionStorage.getItem('cards'));
+  return cards === null ? [] : cards;
 }
 
 createCards();
