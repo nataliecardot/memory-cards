@@ -81,6 +81,7 @@ h1 button {
   transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
+/* Card that's being displayed */
 .card.active {
   cursor: pointer;
   opacity: 1;
