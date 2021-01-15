@@ -120,16 +120,10 @@ function prevCard() {
 // Event listeners
 
 // Next button
-nextBtn.addEventListener('click', () => {
-  nextCard();
-  nextBtn.blur();
-});
+nextBtn.addEventListener('click', nextCard);
 
 // Prev button
-prevBtn.addEventListener('click', () => {
-  prevCard();
-  prevBtn.blur();
-});
+prevBtn.addEventListener('click', prevCard);
 
 // Allow use of left/right arrow keys to navigate cards
 window.addEventListener('keydown', (e) => {
