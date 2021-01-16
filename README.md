@@ -1,6 +1,6 @@
 # Memory Cards
 
-Flashcard app for learning. Display, add, and remove memory cards with questions and answers.
+Display, add, and remove flashcards.
 
 ## Project Specifications
 
