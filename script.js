@@ -83,6 +83,13 @@ function getCardsData() {
   return cards === null ? [] : cards;
 }
 
+// Add cards to session storage
+function setCardsData(cards) {
+  sessionStorage.setItem('cards', JSON.stringify(cards));
+  // Though added to session storage, won't reflect in DOM; reloading page as workaround
+  window.location.reload();
+}
+
 createCards();
 
 function nextCard() {
@@ -141,3 +148,24 @@ showBtn.addEventListener('click', () => addContainer.classList.add('show'));
 
 // Hide add card form
 hideBtn.addEventListener('click', () => addContainer.classList.remove('show'));
+
+// Add new card
+addCardBtn.addEventListener('click', () => {
+  // .value because it's an input
+  const question = questionEl.value;
+  const answer = answerEl.value;
+
+  if (question.trim() && answer.trim()) {
+    const newCard = { question, answer };
+
+    createCard(newCard);
+
+    questionEl.value = '';
+    answerEl.value = '';
+
+    addContainer.classList.remove('show');
+
+    cardsData.push(newCard);
+    setCardsData(cardsData);
+  }
+});
