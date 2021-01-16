@@ -158,7 +158,8 @@ addCardBtn.addEventListener('click', () => {
   if (question.trim() && answer.trim()) {
     const newCard = { question, answer };
 
-    createCard(newCard);
+    // Not needed since calling setCardsData, which reloads page
+    // createCard(newCard);
 
     questionEl.value = '';
     answerEl.value = '';
