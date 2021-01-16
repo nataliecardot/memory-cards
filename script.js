@@ -9,6 +9,7 @@ const answerEl = document.getElementById('answer');
 const addCardBtn = document.getElementById('add-card');
 const clearBtn = document.getElementById('clear');
 const addContainer = document.getElementById('add-container');
+const navButtons = document.getElementsByClassName('nav-button');
 
 // Keep track of current card
 let currentActiveCard = 0;
@@ -37,9 +38,20 @@ const cardsData = getCardsData();
 //   },
 // ];
 
+function displayNavButtons() {
+  if (cardsData.length > 0) {
+    console.log('passed');
+    console.log(navButtons);
+    // getElementsByClassName returns a live HTML collection (navButtons). It's array-like but have to convert it to array (here, using spread operator to do so) in order to be able to use forEach method on it
+    [...navButtons].forEach((elem) => (elem.style.display = 'inline-block'));
+  }
+}
+
 // Create all cards
 function createCards() {
   cardsData.forEach((data, index) => createCard(data, index));
+
+  displayNavButtons();
 }
 
 // Create a single card in DOM (data is object)
