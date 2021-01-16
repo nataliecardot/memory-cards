@@ -10,3 +10,4 @@ Flashcard app for learning. Display, add, and remove memory cards with questions
 - View prev and next cards (using links or arrow keys)
 - Add new cards to session storage
 - Clear all cards from session storage
+- Conditionally show nav buttons
